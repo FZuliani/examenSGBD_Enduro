@@ -1,5 +1,5 @@
 <?php
-$host = 'localhost:8010';
+$host = '127.0.0.1:3308';
 $dbname = 'enduroapp';
 $user = 'root';
 $password = '';
@@ -10,7 +10,7 @@ $options = [
 
 try {
   $pdo = new PDO(
-    "mariadb:host=$host; dbname=$dbname; charset=utf8",
+    "mysql:host=$host; dbname=$dbname; charset=utf8",
     $user,
     $password,
     $options
