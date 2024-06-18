@@ -10,13 +10,12 @@ const app = Vue.createApp({
     },
     computed : {
         sortedTickets() {
-            alert(this.participants)
             return this.participants;
         }
     
     },
     mounted() {
-        fetch('./request/listTickets.php')
+        fetch("../request/listTickets.php")
             .then(response => response.json())
             .then(lstPers => {
                 this.participants = lstPers;

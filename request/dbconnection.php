@@ -1,5 +1,6 @@
 <?php
-$host = '127.0.0.1:3308';
+
+$host = 'localhost:3308';
 $dbname = 'enduroapp';
 $user = 'root';
 $password = '';
