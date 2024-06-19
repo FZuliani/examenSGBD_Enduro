@@ -36,9 +36,13 @@
                     <button @click="updateComment(selectedParticipantValue.comment)"> Modifier le commentaire </button>
                 </div>
                 <label>
-                    Statut de paiement: <input type="checkbox" v-model="selectedParticipantValue.payment_status">
+                    Statut de paiement: <input id="payementStatu" type="checkbox" @change="setPayementStatus()" v-model="selectedParticipantValue.payment_status">
                 </label>
             </div>
+            <div v-if="selectedParticipantValue != null && selectedParticipantValue.payment_status">
+                <button id="dossardButton" @click="giveDossard(selectedParticipantValue.tickets_id)">Attribuer le dossard</button>
+            </div>
+
         </div>
 
         <script src = "../JS/giveDossards.js"></script>

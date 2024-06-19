@@ -38,6 +38,20 @@ const app = Vue.createApp({
             .then(lstPers => {
                 this.participants = lstPers;
             });
+        },
+        setPayementStatus() {
+            alert(this.selectedParticipantValue.payment_status);
+            // let formData = new FormData();
+            // formData.append("id", this.selectedParticipantValue.id);
+            // formData.append("payment_status", this.selectedParticipantValue.payment_status);
+            // fetch("../request/setPayementStatus.php", {
+            //     method: "POST",
+            //     body: formData
+            // })
+            // .then(response => response.json())
+            // .then(lstPers => {
+            //     this.participants = lstPers;
+            // });
         }
     },
     computed : {
