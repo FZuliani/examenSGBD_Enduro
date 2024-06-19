@@ -1,21 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.30/vue.global.min.js"></script>
-    <title>Document</title>
-</head>
-<body>
-    
-<h1>Attribution des dossards</h1>
-    <div id="app">        
-        <ul>
-            <li v-for="participant in sortedTickets">
-                {{participant.last_name}}
-        </ul>
-    </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.30/vue.global.min.js"></script>
+        <link rel="stylesheet" href="./CSS/giveDossardsCSS.css">
 
-    <script src = "../JS/giveDossards.js"></script>
-</body>
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Attribution des dossards</h1>
+        <div id="app">
+            <div>
+                <label>
+                    Nom du participant: <input v-model="selected_participant" @keydown.enter="selectParticipant(selected_participant)" type="search" name="participant" list="listParticipants">
+                </label>
+                <datalist id="listParticipants">
+                    <option v-for="participant in participants" :value="participant.last_name + ' ' + participant.first_name">
+                        {{participant.tickets_id}}
+                    </option>
+                </datalist>
+            </div>
+            <div v-if="selectedParticipantValue != null">
+                <label>N° ticket : {{selectedParticipantValue.tickets_id}}</label>
+                <div>
+                    <label>
+                        N° de plaque: <input v-model="selectedParticipantValue.plate_number">
+                    </label>
+                    <button @click="updatePlateNumber(selectedParticipantValue.plate_number)"> Modifier la plaque </button>
+                </div>
+                <div>
+                    <label>
+                        Commentaire: <textarea v-model="selectedParticipantValue.comment"> </textarea>
+                    </label>
+                    <button @click="updateComment(selectedParticipantValue.comment)"> Modifier le commentaire </button>
+                </div>
+                <label>
+                    Statut de paiement: <input type="checkbox" v-model="selectedParticipantValue.payment_status">
+                </label>
+            </div>
+        </div>
+
+        <script src = "../JS/giveDossards.js"></script>
+    </body>
 </html>
