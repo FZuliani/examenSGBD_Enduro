@@ -6,6 +6,7 @@ const app = Vue.createApp({
             json: null,
             selected_participant: null,
             selectedParticipantValue: null,
+            resultMessage: null,
         }
     },
     methods: {
@@ -13,24 +14,11 @@ const app = Vue.createApp({
             this.selectedParticipantValue = this.participants.find(participant => participant.last_name === selected_participant.split(" ")[0] && participant.first_name === selected_participant.split(" ")[1]);
             this.selectedParticipantValue.payment_status = this.selectedParticipantValue.payment_status === "paid";
         },
-        linkToDossard() {
-            let formData = new FormData();
-            formData.append("id", this.selectedParticipantValue.id);
-            fetch("../request/giveDossards.php", {
-                method: "POST",
-                body: formData
-            })
-            .then(response => response.json())
-            .then(lstPers => {
-                this.participants = lstPers;
-            });
-        },
         updatePlateNumber(plateNumber){
-            alert(plateNumber);
             let formData = new FormData();
-            formData.append("id", this.selectedParticipantValue.id);
-            formData.append("plateNumber", plateNumber);
-            fetch("../request/updatePlateNumber.php", {
+            formData.append("id", this.selectedParticipantValue.vehicles_id);
+            formData.append("plate_number", plateNumber);
+            fetch("../request/UpdatePlateNumber.php", {
                 method: "POST",
                 body: formData
             })
@@ -40,18 +28,47 @@ const app = Vue.createApp({
             });
         },
         setPayementStatus() {
-            alert(this.selectedParticipantValue.payment_status);
-            // let formData = new FormData();
-            // formData.append("id", this.selectedParticipantValue.id);
-            // formData.append("payment_status", this.selectedParticipantValue.payment_status);
-            // fetch("../request/setPayementStatus.php", {
-            //     method: "POST",
-            //     body: formData
-            // })
-            // .then(response => response.json())
-            // .then(lstPers => {
-            //     this.participants = lstPers;
-            // });
+            let formData = new FormData();
+            formData.append("id", this.selectedParticipantValue.tickets_id);
+            formData.append("payment_status", this.selectedParticipantValue.payment_status ? "paid" : "unpaid");
+            fetch("../request/SetPayementStatus.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(result => {
+                this.resultMessage = result;
+            });
+        },
+        updateComment(comment){
+            let formData = new FormData();
+            formData.append("id", this.selectedParticipantValue.tickets_id);
+            formData.append("content", comment);
+            fetch("../request/UpdateComment.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(lstPers => {
+                this.participants = lstPers;
+            });
+        },
+        giveDossard() {
+            let formData = new FormData();
+            formData.append("id_ticket", this.selectedParticipantValue.tickets_id);
+            formData.append("number", this.selectedParticipantValue.dossard_number);
+            formData.append("color_number", this.selectedParticipantValue.dossard_color);
+            formData.append("background_color", this.selectedParticipantValue.font_color);
+            alert(formData.get("id_ticket") + " " + formData.get("number") + " " + formData.get("color_number") + " " + formData.get("background_color"));
+            fetch("../request/LinkDossardToTicket.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(result => {
+                this.resultMessage = result;
+            });
+            location.reload();
         }
     },
     computed : {

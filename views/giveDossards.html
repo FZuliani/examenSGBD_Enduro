@@ -6,9 +6,14 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.30/vue.global.min.js"></script>
         <link rel="stylesheet" href="./CSS/giveDossardsCSS.css">
 
-        <title>Document</title>
+        <title>Give Dossards</title>
     </head>
     <body>
+    <nav>
+            <ul>
+                <li><a href="./giveDossards.html">Attribution des dossards</a></li>
+                <li><a href="./recupDossards.html" >Récupération des dossards</a></li>
+            </ul>
         <h1>Attribution des dossards</h1>
         <div id="app">
             <div>
@@ -40,6 +45,24 @@
                 </label>
             </div>
             <div v-if="selectedParticipantValue != null && selectedParticipantValue.payment_status">
+
+                <h2>Attribution du dossard</h2>
+                <label>
+                    N° de dossard: <input v-model="selectedParticipantValue.dossard_number">
+                </label>
+                <label>
+                    Couleur du dossard: <select v-model="selectedParticipantValue.dossard_color">
+                        <option value="red">Rouge</option>
+                        <option value="blue">Bleu</option>
+                        <option value="green">Vert</option>
+                    </select>
+                </label>
+                <label>
+                    Couleur de la police: <select v-model="selectedParticipantValue.font_color">
+                        <option value="black">Noir</option>
+                        <option value="white">Blanc</option>
+                    </select>
+                </label>
                 <button id="dossardButton" @click="giveDossard(selectedParticipantValue.tickets_id)">Attribuer le dossard</button>
             </div>
 
