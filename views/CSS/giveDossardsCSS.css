@@ -107,3 +107,41 @@ input[type="text"] {
     color: #721c24;
     border: 1px solid #f5c6cb;
 }
+
+/* Navbar CSS */
+
+/* Style de base pour la barre de navigation */
+nav {
+    background-color: #0056b3;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+
+/* Style pour la liste des éléments de navigation */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* Style pour chaque élément de la liste */
+nav ul li {
+    margin: 0 15px;
+}
+
+/* Style pour les liens de navigation */
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+/* Effet au survol des liens */
+nav ul li a:hover {
+    background-color: #004494;
+}

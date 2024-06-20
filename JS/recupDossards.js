@@ -8,7 +8,7 @@ const app = Vue.createApp({
     methods: {
         deleteDossard(dossard) {
             let formData = new FormData();
-            formData.append("id", dossard.id);
+            formData.append("id", dossard[0]);
             fetch("../request/DeleteDossard.php", {
                 method: "POST",
                 body: formData
