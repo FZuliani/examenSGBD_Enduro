@@ -6,9 +6,37 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.30/vue.global.min.js"></script>
     <link rel="stylesheet" href="./CSS/giveDossardsCSS.css">
 
-    <title>Récupe Dossards</title>
+    <title>Recupe Dossards</title>
 </head>
 <body>
-
+    <nav>
+        <ul>
+            <li><a href="./giveDossards.html">Attribution des dossards</a></li>
+            <li><a href="./recupDossards.html" >Récupération des dossards</a></li>
+        </ul>
+    </nav>
+    <h1>Récupération des dossards</h1>
+    <div id="app">
+        <div>
+            <ul v-for="dossard in dossards">
+                <li>
+                    <label>
+                        N° de dossard: {{dossard.number}}
+                    </label>
+                    <label>
+                        Couleur du dossard: {{dossard.background_color}}
+                    </label>
+                    <label>
+                        Couleur du texte: {{dossard.color_number}}
+                    </label>
+                    <label>
+                        Nom et Prénom: {{dossard.last_name}} {{dossard.first_name}}
+                    </label>
+                    <button @click="deleteDossard(dossard.dossard_number)">Supprimer le dossard</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="../JS/recupDossards.js"></script>
 </body>
 </html>

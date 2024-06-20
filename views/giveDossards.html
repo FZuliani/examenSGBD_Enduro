@@ -9,11 +9,12 @@
         <title>Give Dossards</title>
     </head>
     <body>
-    <nav>
+        <nav>
             <ul>
                 <li><a href="./giveDossards.html">Attribution des dossards</a></li>
                 <li><a href="./recupDossards.html" >Récupération des dossards</a></li>
             </ul>
+        </nav>
         <h1>Attribution des dossards</h1>
         <div id="app">
             <div>
@@ -52,15 +53,15 @@
                 </label>
                 <label>
                     Couleur du dossard: <select v-model="selectedParticipantValue.dossard_color">
-                        <option value="red">Rouge</option>
-                        <option value="blue">Bleu</option>
-                        <option value="green">Vert</option>
+                        <option value="Rouge">Rouge</option>
+                        <option value="Bleu">Bleu</option>
+                        <option value="Vert">Vert</option>
                     </select>
                 </label>
                 <label>
                     Couleur de la police: <select v-model="selectedParticipantValue.font_color">
-                        <option value="black">Noir</option>
-                        <option value="white">Blanc</option>
+                        <option value="Noir">Noir</option>
+                        <option value="Blanc">Blanc</option>
                     </select>
                 </label>
                 <button id="dossardButton" @click="giveDossard(selectedParticipantValue.tickets_id)">Attribuer le dossard</button>
