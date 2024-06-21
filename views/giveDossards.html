@@ -64,7 +64,7 @@
                         <option value="Blanc">Blanc</option>
                     </select>
                 </label>
-                <button id="dossardButton" @click="giveDossard(selectedParticipantValue.tickets_id)">Attribuer le dossard</button>
+                <button v-if="selectedParticipantValue.font_color != null && selectedParticipantValue.dossard_color != null &&  selectedParticipantValue.dossard_number != null" id="dossardButton" @click="giveDossard(selectedParticipantValue.tickets_id)">Attribuer le dossard</button>
             </div>
 
         </div>
