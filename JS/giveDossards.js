@@ -57,9 +57,8 @@ const app = Vue.createApp({
             let formData = new FormData();
             formData.append("id_ticket", this.selectedParticipantValue.tickets_id);
             formData.append("number", this.selectedParticipantValue.dossard_number);
-            formData.append("color_number", this.selectedParticipantValue.dossard_color);
-            formData.append("background_color", this.selectedParticipantValue.font_color);
-            alert(formData.get("id_ticket") + " " + formData.get("number") + " " + formData.get("color_number") + " " + formData.get("background_color"));
+            formData.append("color_number", this.selectedParticipantValue.font_color);
+            formData.append("background_color", this.selectedParticipantValue.dossard_color);
             fetch("../request/LinkDossardToTicket.php", {
                 method: "POST",
                 body: formData
@@ -69,7 +68,7 @@ const app = Vue.createApp({
                 this.resultMessage = result;
             });
             location.reload();
-        }
+        },
     },
     computed : {
         sortedTickets() {

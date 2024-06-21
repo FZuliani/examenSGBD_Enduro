@@ -18,7 +18,10 @@
     <h1>Récupération des dossards</h1>
     <div id="app">
         <div>
-            <ul v-for="dossard in dossards">
+            <label>
+                Nom et/ou prénom du participant: <input v-model="search">
+            </label>
+            <ul v-for="dossard in dossardSearch">
                 <li>
                     <label>
                         N° de dossard: {{dossard.number}}
@@ -32,7 +35,8 @@
                     <label>
                         Nom et Prénom: {{dossard.last_name}} {{dossard.first_name}}
                     </label>
-                    <button @click="deleteDossard(dossard)">Dossard récupéré</button>
+                    <button id="recupDossard" @click="deleteDossard(dossard)">Dossard récupéré</button>
+                    <button id="errorDossard" @click="errorDossard(dossard)">Dossard mal attribué</button>
                 </li>
             </ul>
         </div>

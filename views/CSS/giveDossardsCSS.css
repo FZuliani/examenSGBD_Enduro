@@ -89,6 +89,29 @@ input[type="text"] {
     cursor: pointer;
 }
 
+#errorDossard {
+    display: inline-block;
+    padding: 10px 15px;
+    margin-top: 10px;
+    margin-left: 10px;
+    background-color: #e40000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#recupDossard{
+    display: inline-block;
+    padding: 10px 15px;
+    margin-top: 10px;
+    background-color: #00bd00;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
 /* Style pour les messages de statut */
 .message {
     padding: 10px;
