@@ -47,10 +47,6 @@ const app = Vue.createApp({
             fetch("../request/UpdateComment.php", {
                 method: "POST",
                 body: formData
-            })
-            .then(response => response.json())
-            .then(lstPers => {
-                this.participants = lstPers;
             });
         },
         giveDossard() {
