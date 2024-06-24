@@ -21,10 +21,6 @@ const app = Vue.createApp({
             fetch("../request/UpdatePlateNumber.php", {
                 method: "POST",
                 body: formData
-            })
-            .then(response => response.json())
-            .then(lstPers => {
-                this.participants = lstPers;
             });
         },
         setPayementStatus() {
