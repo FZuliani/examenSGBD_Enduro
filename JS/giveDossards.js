@@ -22,6 +22,7 @@ const app = Vue.createApp({
                 method: "POST",
                 body: formData
             });
+            alert("Numéro de plaque mise à jour");
         },
         setPayementStatus() {
             let formData = new FormData();
@@ -44,6 +45,7 @@ const app = Vue.createApp({
                 method: "POST",
                 body: formData
             });
+            alert("Commentaire mis à jour");
         },
         giveDossard() {
             let formData = new FormData();
