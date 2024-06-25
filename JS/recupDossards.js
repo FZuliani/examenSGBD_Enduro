@@ -42,7 +42,7 @@ const app = Vue.createApp({
             }
             let search = this.search.toLowerCase();
             return dossards.filter(dossard => {
-                return dossard.last_name.toLowerCase().includes(search) || dossard.first_name.toLowerCase().includes(search);
+                return dossard.number == search;
             });
         }
     },
