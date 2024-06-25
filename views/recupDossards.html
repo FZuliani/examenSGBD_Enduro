@@ -1,46 +1,45 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.30/vue.global.min.js"></script>
-    <link rel="stylesheet" href="./CSS/giveDossardsCSS.css">
-
-    <title>Recupe Dossards</title>
-</head>
-<body>
-    <nav>
-        <ul>
-            <li><a href="./giveDossards.html">Attribution des dossards</a></li>
-            <li><a href="./recupDossards.html" >Récupération des dossards</a></li>
-        </ul>
-    </nav>
-    <h1>Récupération des dossards</h1>
-    <div id="app">
-        <div>
-            <label>
-                N° du dossard: <input v-model="search">
-            </label>
-            <ul v-for="dossard in dossardSearch">
-                <li>
-                    <label>
-                        N° de dossard: {{dossard.number}}
-                    </label>
-                    <label>
-                        Couleur du dossard: {{dossard.background_color}}
-                    </label>
-                    <label>
-                        Couleur du texte: {{dossard.color_number}}
-                    </label>
-                    <label>
-                        Nom et Prénom: {{dossard.last_name}} {{dossard.first_name}}
-                    </label>
-                    <button id="recupDossard" @click="deleteDossard(dossard)">Dossard récupéré</button>
-                    <button id="errorDossard" @click="errorDossard(dossard)">Dossard mal attribué</button>
-                </li>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.30/vue.global.min.js"></script>
+        <link rel="stylesheet" href="./CSS/recupDossards.css">
+        <title>Recupe Dossards</title>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="./giveDossards.html">Attribution des dossards</a></li>
+                <li><a href="./recupDossards.html" >Récupération des dossards</a></li>
             </ul>
+        </nav>
+        <h1>Récupération des dossards</h1>
+        <div id="app">
+            <div>
+                <label>
+                    N° du dossard: <input v-model="search">
+                </label>
+                <ul v-for="dossard in dossardSearch">
+                    <li>
+                        <label>
+                            N° de dossard: {{dossard.number}}
+                        </label>
+                        <label>
+                            Couleur du dossard: {{dossard.background_color}}
+                        </label>
+                        <label>
+                            Couleur du texte: {{dossard.color_number}}
+                        </label>
+                        <label>
+                            Nom et Prénom: {{dossard.last_name}} {{dossard.first_name}}
+                        </label>
+                        <button id="recupDossard" @click="deleteDossard(dossard)">Dossard récupéré</button>
+                        <button id="errorDossard" @click="errorDossard(dossard)">Dossard mal attribué</button>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <script src="../JS/recupDossards.js"></script>
-</body>
+        <script src="../JS/recupDossards.js"></script>
+    </body>
 </html>

@@ -1,0 +1,166 @@
+/* Navbar CSS */
+
+/* Style de base pour la barre de navigation */
+nav {
+    background-color: #0056b3;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+
+/* Style pour la liste des éléments de navigation */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* Style pour chaque élément de la liste */
+nav ul li {
+    margin: 0 15px;
+}
+
+/* Style pour les liens de navigation */
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+/* Effet au survol des liens */
+nav ul li a:hover {
+    background-color: #004494;
+}
+
+/* Style de base pour le corps de la page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Style pour le titre principal */
+h1 {
+    text-align: center;
+    color: #0056b3;
+}
+
+/* Style pour le conteneur de l'application */
+#app {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Style pour les champs de formulaire et les étiquettes */
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input[type="search"],
+input[type="text"],
+input[type="number"],
+textarea {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="checkbox"] {
+    margin-top: 10px;
+}
+
+/* Style pour les boutons */
+button {
+    padding: 10px 15px;
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#recupDossard {
+    background-color: green;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#errorDossard {
+    background-color: red;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+button:hover {
+    background-color: #004494;
+}
+
+/* Style pour aligner les champs et les boutons sur la même ligne */
+div > label, div > button {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+div > label {
+    width: calc(70% - 20px);
+    margin-right: 10px;
+}
+
+/* Style pour textarea */
+textarea {
+    width: calc(100% - 22px);
+    height: 80px;
+    resize: vertical;
+}
+
+/* Style pour les sections de contenu */
+div {
+    margin-bottom: 20px;
+}
+
+/* Style pour les paragraphes */
+p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+/* Style pour les messages de statut */
+.message {
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
