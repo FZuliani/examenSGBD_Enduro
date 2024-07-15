@@ -7,6 +7,7 @@ const app = Vue.createApp({
             selected_participant: null,
             selectedParticipantValue: null,
             resultMessage: null,
+            colors_dossard: ["red", "green", "blue"],
         }
     },
     methods: {

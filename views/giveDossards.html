@@ -51,19 +51,19 @@
                 <label>
                     N° de dossard: <input type="number" v-model="selectedParticipantValue.dossard_number">
                 </label>
-                <label>
-                    Couleur du dossard: <select v-model="selectedParticipantValue.dossard_color">
-                        <option value="Rouge">Rouge</option>
-                        <option value="Bleu">Bleu</option>
-                        <option value="Vert">Vert</option>
-                    </select>
-                </label>
-                <label>
-                    Couleur de la police: <select v-model="selectedParticipantValue.font_color">
-                        <option value="Noir">Noir</option>
-                        <option value="Blanc">Blanc</option>
-                    </select>
-                </label>
+                <div id="setColors">
+                    <label>
+                        Couleur du dossard:
+                        <button class="contour" v-for="color in colors_dossard" :style="{backgroundColor: color}" @click="selectedParticipantValue.dossard_color = color"></button>
+                    </label>
+                    <label>
+                        Couleur de la police: <select v-model="selectedParticipantValue.font_color">
+                            <option value="Noir">Noir</option>
+                            <option value="Blanc">Blanc</option>
+                        </select>
+                    </label>
+                </div>
+
                 <button v-if="selectedParticipantValue.font_color != null && selectedParticipantValue.dossard_color != null &&  selectedParticipantValue.dossard_number != null" id="dossardButton" @click="giveDossard(selectedParticipantValue.tickets_id)">Attribuer le dossard</button>
             </div>
 
